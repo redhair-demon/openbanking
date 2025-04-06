@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    read-only:
+      jdbc-url: jdbc:postgresql://localhost:5433/openbanking
+      username: openbanking
+      password: openbanking
+    url: jdbc:postgresql://localhost:5433/openbanking
+    username: openbanking
+    password: openbanking
+
+logging:
+  format: RAW_TEXT

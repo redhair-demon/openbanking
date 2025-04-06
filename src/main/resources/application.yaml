@@ -1,0 +1,62 @@
+
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+  jdbc:
+    template:
+      query-timeout: PT5S
+  datasource:
+    read-only:
+      driver-class-name: org.postgresql.Driver
+      auto-commit: true
+      connection-timeout: 1000
+      idle-timeout: 60000
+      maximum-pool-size: 10
+      minimum-idle: 3
+      pool-name: ro-db-pool
+      connection-test-query: SELECT 1
+      validation-timeout: 1000
+      read-only: true
+      max-lifetime: 600000
+    select-batch-size: 1000
+    hikari:
+      auto-commit: true
+      connection-timeout: 1000
+      minimum-idle: 1
+      maximum-pool-size: 10
+      idle-timeout: 10000
+      pool-name: main-db-pool
+      connection-test-query: SELECT 1
+      validation-timeout: 1000
+      leak-detection-threshold: 300000
+  liquibase:
+    change-log: classpath:liquibase/changelog-master.yml
+    enabled: true
+
+#hazelcast:
+#  group-name: openbanking
+#  map:
+#    categoryDiscountParams:
+#      max-size: 100000
+#      time-to-live-seconds: 21600   # 60 * 60 * 6 = 6 hours
+#      default-category-guid: 00000000-0000-0000-0000-000000000000
+
+logging:
+  format: json
+
+server:
+  shutdown: GRACEFUL
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+    doc-expansion: none
+
+log4jdbc:
+  dump:
+    booleanastruefalse: true
+    sql:
+      maxlinelength: 0
+
+tracing:
+  type: open_telemetry
