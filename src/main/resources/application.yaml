@@ -33,13 +33,10 @@ spring:
     change-log: classpath:liquibase/changelog-master.yml
     enabled: true
 
-#hazelcast:
-#  group-name: openbanking
-#  map:
-#    categoryDiscountParams:
-#      max-size: 100000
-#      time-to-live-seconds: 21600   # 60 * 60 * 6 = 6 hours
-#      default-category-guid: 00000000-0000-0000-0000-000000000000
+#feign:
+#  oauth2:
+#    enabled: true
+#    clientRegistrationId: keycloak
 
 logging:
   format: json
@@ -60,3 +57,16 @@ log4jdbc:
 
 tracing:
   type: open_telemetry
+
+
+#oauth2.auth-server.auth-endpoint: http://auth.localhost:9000/realms/accounts/auth
+oauth2.auth-server.auth-endpoint: http://192.168.0.137:9000/realms/accounts/auth
+oauth2.auth-server.token-endpoint: http://auth.localhost:9000/realms/accounts/token
+
+oauth2.resource-server.contacts-endpoint: http://localhost:8082/accounts
+
+#oauth2.client.id=${OAUTH2_CLIENT_ID}
+oauth2.client.id: zz5fgmrrii2Vk0ZhqLxv5bTZitOHsPBX
+oauth2.client.redirect-uri: http://192.168.0.137:8081/oauth/callback
+#oauth2.client.secret=${OAUTH2_CLIENT_SECRET}
+oauth2.client.secret: 5C5776AF06AA3DE0339C8171A4E07AE9FF987F94C431029F3EABE1031DDDA3DE90AB004A0B9B5C9B5F09A4C0FCAAA039861E7690B0F2571C7CF1C6BF3000EC2173109A12328C083A902628F3C840EF3F4DB5FDCC68AD48A3DBC750F89F8A726C69D2927C59FCFE46C9ACE5B33E7C00C004B48D7288D331F599A0132E35F47FF7C837E0B9059D77C988B3269902155CE4A9551401EA17D382D3894D4D6B8E56ABB2A563F446B94D5B93C60F41F334A48C8D178C6B75957DE6E2EE970E10344D15788FBF696CB0D059E49AFA37D8035C19F6721871A5566C87A401DEC3AAD5652B3B17A80980DC88BB22C38CFED7A2621C2610C5018D7BCD8D7023BB605ED7C3FA

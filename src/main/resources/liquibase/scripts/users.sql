@@ -14,5 +14,8 @@ CREATE TABLE users
 
 --changeset negorov:add-users
 --comment добавление data users
-INSERT INTO users VALUES (1, 'Adam', '098f6bcd-4621-3373-8ade-4e832627b4f6'::uuid, '89121234567'),
-                         (2, 'Bob', 'ad023482-9205-3903-b196-ba818f7a872b'::uuid, '89127654321')
+INSERT INTO users VALUES (1, 'Adam', '098f6bcd-4621-3373-8ade-4e832627b4f6'::uuid, '89123456789'),
+                         (2, 'Bob', 'ad023482-9205-3903-b196-ba818f7a872b'::uuid, '89876543210')
+--changeset negorov:add-user-3
+--comment добавление data users
+;INSERT INTO users VALUES (3, 'Никита Егоров', 'ad023482-9205-3903-b196-ba818f7a872b'::uuid, '79206001010');

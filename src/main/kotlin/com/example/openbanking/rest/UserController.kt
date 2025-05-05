@@ -4,6 +4,7 @@ import com.example.openbanking.api.ValidateRequest
 import com.example.openbanking.dao.User
 import com.example.openbanking.dao.UserDAO
 import io.github.oshai.kotlinlogging.KotlinLogging
+import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -28,7 +29,7 @@ class UserController(
 
     @GetMapping("/{phone}")
     fun get(@PathVariable phone: String): User? {
-        println("Get user for $phone")
+        logger.info { "Get user for $phone" }
         return userDAO.findByPhone(phone)
     }
 }

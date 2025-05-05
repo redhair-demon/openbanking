@@ -24,11 +24,12 @@ class UserDAO(
         val sql = """
             SELECT id, name, phone, password_hash
             FROM users
-            WHERE phone = :phone
+            WHERE phone = :phone8 OR phone = :phone7
         """.trimIndent()
 
         val params = mapOf(
-            "phone" to phone,
+            "phone8" to "8${phone.substring(1)}",
+            "phone7" to "7${phone.substring(1)}",
         )
 
         return DataAccessUtils.singleResult(

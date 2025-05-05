@@ -10,3 +10,5 @@ spring:
 
 logging:
   format: RAW_TEXT
+  level:
+    web: debug
